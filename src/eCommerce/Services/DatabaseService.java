@@ -5,7 +5,7 @@ import java.sql.*;
 // establishes connections; connection variables and closes connections.
 public class DatabaseService {
 
-    // not part of the Java library
+    // imported from java.sql. Not part of the Java library
     private Connection connection = null;
     private Statement statement = null;
 
@@ -29,7 +29,7 @@ public class DatabaseService {
                 "user=root&password="enter_password"@&useSSL=false&serverTimezone=UTC");
         // in the url: port; link; server; database,which table; username/password; serverTimezone
         statement = connection.createStatement();
-
+        // return connection "statement"
         return statement;
     }
 
@@ -38,6 +38,7 @@ public class DatabaseService {
         try {
                 statement.close();
                 connection.close();
+                // handles exceptions with disconnecting to mySQL
         } catch (SQLException e) {
             System.out.println("Error disconnecting from mySQL");
             e.printStackTrace();
@@ -48,6 +49,7 @@ public class DatabaseService {
         try {
             preparedStatement.close();
             connection.close();
+                // handles exceptions with disconnecting to mySQL
         } catch (SQLException e) {
             System.out.println("Error disconnecting from mySQL");
             e.printStackTrace();

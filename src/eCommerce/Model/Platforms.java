@@ -1,12 +1,15 @@
 package eCommerce.Model;
 
+// Platform pojo
 public class Platforms {
 
+    // class variables
     private int id;
     private String platform_name;
     private String platform_url;
     private double sales_fee;
 
+    // getters + setters
     public int getId() {
         return id;
     }
@@ -39,6 +42,7 @@ public class Platforms {
         this.sales_fee = sales_fee;
     }
 
+    // toString
     @Override
     public String toString() {
         return "Platforms {" +

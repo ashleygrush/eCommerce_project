@@ -104,12 +104,14 @@ public class ProductService {
     // UPDATE PRODUCT INFO METHOD
     public void updateProducts() {
         try {
-            // pull data from database connection
+            // import connection to mySQL
             connection = databaseService.mySQLConnect();
 
+            // connects to Products table in mySQL
             preparedStatement = connection.prepareStatement("SELECT * from Products");
+            // sets Products to set results in table
             resultSet = preparedStatement.executeQuery();
-
+            // writes results to method below
             writeResultSet(resultSet);
 
             // CLOSE CONNECTION
@@ -142,13 +144,14 @@ public class ProductService {
 
     // PRODUCT LIST DISPLAY HERE!
     private void writeResultSet(ResultSet resultSet) throws SQLException {
-        // ResultSet is initially before the first data set
+        // lists data pulled from update list
         while (resultSet.next()) {
             //establish variables
             int id = resultSet.getInt("id");
             String name = resultSet.getString("name");
             String description = resultSet.getString("description");
 
+            // list display
             System.out.println("ID number: " + id);
             System.out.println("Product name: " + name);
             System.out.println("Product description: " + description);

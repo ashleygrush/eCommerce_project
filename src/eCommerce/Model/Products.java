@@ -1,11 +1,14 @@
 package eCommerce.Model;
 
+// Products pojo
 public class Products {
 
+    // class variables
     private int id;
     private String name;
     private String description;
 
+    // getters + setters
     public int getId() {
         return id;
     }
@@ -30,6 +33,7 @@ public class Products {
         this.description = description;
     }
 
+    // toString
     @Override
     public String toString() {
         return "Products {" +
